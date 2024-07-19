@@ -1,13 +1,11 @@
 - name: DB setup
   hosts: db
+  become: yes
   tasks:
   
   - name: Installing mysql-server
-    ansible.builtin.command: sudo dnf install mysql-server -y
-      register: mysqlserver
-  
-  -name: Checking the server install msg
-   ansible.builtin.debug:
-    msg: {{mysqlserver}}
+    ansible.builtin.dnf:
+      name: mysqlserver
+      state: latest
   
     
