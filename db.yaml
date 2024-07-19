@@ -8,9 +8,26 @@
     prompt: Please Enter Password-
     private: no
   tasks:
+  
   - name: Installing mysql-server
     ansible.builtin.dnf:
       name: mysql-server
       state: latest
+  
+  - name: Enabling and starting mysql
+    ansible.builtin.service:
+      state: started
+      enabled: yes
+  
+  - name: Install python mysql dependencies
+    ansible.builtin.pip:
+      name:
+      - PyMySQL
+      - cryptography
+      executable: pip 3.9
+      
+  
+
+  
   
     
