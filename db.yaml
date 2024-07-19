@@ -1,8 +1,13 @@
 - name: DB setup
   hosts: db
   become: yes
+  vars:
+    login_host: 172.31.57.111
+  vars_prompt:
+  - name: mysql_password
+    prompt: Please Enter Password-
+    private: no
   tasks:
-  
   - name: Installing mysql-server
     ansible.builtin.dnf:
       name: mysql-server
