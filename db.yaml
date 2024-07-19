@@ -34,7 +34,7 @@
       login_host: "{{login_host}}"
       filter: version
     ignore_errors: yes
-    regsiter: mysql_connection_output
+    register: mysql_connection_output
 
   - name: printing the connection output
     ansible.builtin.debug:
