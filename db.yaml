@@ -25,20 +25,9 @@
       name:
       - PyMySQL
       - cryptography
-      executable: pip3
+      executable: pip3.9
 
-  - name: Setting up root password
-    community.mysql.mysql_info:
-      login_user: root
-      login_password: "{{ mysql_password }}"
-      login_host: "{{login_host}}"
-      filter: version
-    ignore_errors: yes
-    regsiter: mysql_connection_output
-
-  - name: printing the connection output
-    ansible.builtin.debug:
-      msg: "{{ mysql_connection_output }}"
+  
 
   
 
