@@ -25,7 +25,7 @@
       name:
       - PyMySQL
       - cryptography
-      executable: pip 21.2.3
+      executable: pip3
 
   
 
