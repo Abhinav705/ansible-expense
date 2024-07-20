@@ -44,7 +44,9 @@
     
   - name: Copying the service
     ansible.builtin.copy:
-      src: backend.service- name: install python mysql dependencies
+      src: backend.service
+      
+  - name: install python mysql dependencies
     ansible.builtin.pip: 
       name:
       - PyMySQL # to connect MySQL DB from Ansible
