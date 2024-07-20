@@ -2,7 +2,7 @@
   hosts: backend
   become: yes
   vars:
-    login_host: 54.197.17.161
+    login_host: 172.31.88.176
     login_password: ExpenseApp@1
   tasks:
   
@@ -63,6 +63,17 @@
       state: import
       name: all
       dest: /etc/systemd/system/backend.service
+
+  - name: Daemon Reload
+    ansible.builtin.systemd_service:
+      daemon_reload: true
+
+  - name: start and enable backend service
+    ansible.builtin.service:
+      name: backend
+      state: started
+      enabled: yes
+
   
 
 
