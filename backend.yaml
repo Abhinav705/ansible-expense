@@ -2,7 +2,7 @@
   hosts: backend
   become: yes
   vars:
-    login_host: 54.197.17.161
+    login_host: 
     login_password: ExpenseApp@1
   tasks:
   
@@ -14,8 +14,11 @@
   
   - name: Installing nodejs
     ansible.builtin.dnf:
-      name: nodejs
-      state: latest
+      name: {{"item"}}
+      state: installed
+    loop:
+    - nodejs
+    - mysql
   
   - name: Add user expense
     ansible.builtin.user:
